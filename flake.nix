@@ -1,3 +1,5 @@
+#flake add
+
 {
 description = "NixOS flake for Murotxonov's laptop";
 
