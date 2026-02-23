@@ -6,7 +6,7 @@ inputs = {
 
   };
 
-  outputs = { self, nixpkgs}@inputs{
+  outputs = { self, nixpkgs}@inputs:{
     nixosConfigurations.murotxonov-laptop = nixpkgs.lib.nixosSystem {
       modules = [
         ./configuration.nix
