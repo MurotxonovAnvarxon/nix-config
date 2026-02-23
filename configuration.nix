@@ -104,6 +104,8 @@
   };
 
   
+
+  
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -115,6 +117,7 @@
    vscode
    telegram-desktop
    git
+   jetbrains.idea
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
