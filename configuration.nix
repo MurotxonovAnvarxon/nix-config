@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 #nix
-{ config, pkgs, ... }:
+{config, pkgs, ... }:
 
 {
   imports =
@@ -25,7 +25,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
+  
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -97,13 +97,9 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  programs.vscode = {
-    enable = true;
-  };
+  programs.vscode.enable = true;
 
-  programs.git = {
-    enable = true;
-  };
+  programs.git.enable = true;
 
   
 
@@ -120,7 +116,10 @@
    telegram-desktop
    git
    jetbrains.idea
+   home-manager 
   ];
+
+  #buildWallpaperExports = 
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
