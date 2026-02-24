@@ -1,6 +1,6 @@
-{ config, pkgs, lib , ...};
+{ config, pkgs, lib , ...}:
 {
-   home.userName = "murotxonov";
+   home.username = "murotxonov";
    home.homeDirectory = "/home/murotxonov";
 
    home.packages = with pkgs; [
