@@ -10,7 +10,7 @@
   # Import files from the current configuration directory into the Nix store,
   # and create symbolic links pointing to those store files in the Home directory.
 
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
+  # home.file.".config/i3/wallpaper/image.png".source = ./wallpaper/image.png;
 
   # Import the scripts directory into the Nix store,
   # and recursively generate symbolic links in the Home directory pointing to the files in the store.
