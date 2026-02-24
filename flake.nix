@@ -1,22 +1,49 @@
-#flake add
-
 {
-description = "NixOS flake for Murotxonov's laptop";
+  description = "NixOS configuration";
 
-inputs = {
-  nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-# home-manager.url = {
-#   github = "github:nix-community/home-manager";
-#   inputs.nixpkgs.follows = "nixpkgs";
-# };
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    # home-manager, used for managing user configuration
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.11";
+      # The `follows` keyword in inputs is used for inheritance.
+      # Here, `inputs.nixpkgs` of home-manager is kept consistent with
+      # the `inputs.nixpkgs` of the current flake,
+      # to avoid problems caused by different versions of nixpkgs.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self , nixpkgs , home-manager, ... }@inputs:{
-    nixosConfigurations.murotxonov-laptop = nixpkgs.lib.nixosSystem {
-      modules = [
-        ./configuration.nix
-        ./home.nix
-       ];
+  outputs = inputs @ {
+    nixpkgs,
+    home-manager,
+    ...
+  }: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {inherit system;};
+  in {
+    devShells.${system}.default = import ./shell.nix {inherit pkgs inputs;};
+
+    nixosConfigurations = {
+      # TODO please change the hostname to your own
+      murotxonov = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./configuration.nix
+
+          # make home-manager as a module of nixos
+          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            # TODO replace ryan with your own username
+            home-manager.users.murotxonov = import ./home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+          }
+        ];
+      };
+    };
   };
-};
 }
