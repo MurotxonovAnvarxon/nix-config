@@ -101,11 +101,11 @@
   ];
 
   # basic configuration of git, please change to your own
-  programs.git = {
-    enable = true;
-    userName = "Ryan Yin";
-    userEmail = "xiaoyin_c@qq.com";
-  };
+  # programs.git = {
+  #   enable = true;
+  #   userName = "Ryan Yin";
+  #   userEmail = "xiaoyin_c@qq.com";
+  # };
 
   # starship - an customizable prompt for any shell
   programs.starship = {
