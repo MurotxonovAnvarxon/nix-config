@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  wallpaper,
   ...
 }: {
   # TODO please change the username & home directory to your own
@@ -100,6 +101,8 @@
     usbutils # lsusb
   ];
 
+
+  
   # basic configuration of git, please change to your own
   # programs.git = {
   #   enable = true;
@@ -118,15 +121,22 @@
       line_break.disabled = true;
     };
   };
+ 
+ 
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
   programs.alacritty = {
     enable = true;
     # custom settings
     settings = {
+      background-image = {
+        source = "wallpaper/image.png";
+        # opacity of the background image, value between 0 and 1
+        opacity = 0.5;
+      };
       env.TERM = "xterm-256color";
       font = {
-        size = 12;
+        size = 20;
         draw_bold_text_with_bright_colors = true;
       };
       scrolling.multiplier = 5;
