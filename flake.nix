@@ -36,6 +36,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = ".bak";
 
             # TODO replace ryan with your own username
             home-manager.users.murotxonov = import ./home.nix;
