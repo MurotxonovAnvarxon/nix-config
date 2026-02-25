@@ -25,6 +25,7 @@
   # home.file.".xxx".text = ''
   #     xxx
   # '';
+  programs.desktoppr.settings.picture = ./.wallpaper/image.png;
 
   # set cursor size and dpi for 4k monitor
   xresources.properties = {
@@ -102,7 +103,7 @@
   ];
 
 
-  
+
   # basic configuration of git, please change to your own
   # programs.git = {
   #   enable = true;
@@ -121,8 +122,8 @@
       line_break.disabled = true;
     };
   };
- 
- 
+
+
    programs.vscode = {
     enableUpdateCheck = false;
     enable = true;
