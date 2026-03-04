@@ -2,5 +2,7 @@ let
   pkgs = import <nixpkgs> { };
 in
 {
-hello = pkgs.callPackage ./hello.nix { audience = "Anvarxon"; };
+hello = pkgs.callPackage ./hello.nix {
+  audience = "Anvarxon";
+   };
 }

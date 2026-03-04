@@ -1,6 +1,6 @@
 { writeShellScriptBin,
-  audience ? "world!"
+  audience ? "book"
 }:
 writeShellScriptBin "hello" ''
-  echo "Hello, world!"
+  echo "Hello ${audience}"
 ''
