@@ -1,8 +1,8 @@
-let
-  pkgs = import <nixpkgs> { };
-in
+{ lib, ...}:
 {
-hello = pkgs.callPackage ./hello.nix {
-  audience = "Anvarxon";
-   };
+ options = {
+  scripts.output = lib.mkoption {
+    typr = lib.types.lines;
+  };
+ };
 }

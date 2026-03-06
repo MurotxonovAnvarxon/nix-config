@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = 
+  imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
@@ -25,7 +25,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -101,9 +101,9 @@
 
   programs.git.enable = true;
 
-  
 
-  
+
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -114,10 +114,10 @@
    telegram-desktop
    git
    jetbrains.idea
-   home-manager 
+   home-manager
   ];
 
-  #buildWallpaperExports = 
+  #buildWallpaperExports =
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

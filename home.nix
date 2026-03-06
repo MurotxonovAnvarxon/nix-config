@@ -4,10 +4,13 @@
   wallpaper,
   ...
 }: {
-  # TODO please change the username & home directory to your own
   home.username = "murotxonov";
   home.homeDirectory = "/home/murotxonov";
 
+
+  imports = [
+    ./modules/home/vscode/default.nix
+  ];
   # Import files from the current configuration directory into the Nix store,
   # and create symbolic links pointing to those store files in the Home directory.
 
@@ -25,7 +28,6 @@
   # home.file.".xxx".text = ''
   #     xxx
   # '';
-  programs.desktoppr.settings.picture = ./.wallpaper/image.png;
 
   # set cursor size and dpi for 4k monitor
   xresources.properties = {
@@ -124,36 +126,7 @@
   };
 
 
-   programs.vscode = {
-    enableUpdateCheck = false;
-    enable = true;
 
-    profiles.default = {
-      userSettings = {
-        "editor.renderWhitespace" = "all";
-        "files.autoSave" = "onFocusChange";
-        "editor.rulers" = [ 80 120 ];
-        "telemetry.enableTelemetry" = false;
-        "telemetry.enableCrashReporter" = false;
-        "editor.tabSize" = 2;
-        "files.exclude" = { "**/node_modules/**" = true; };
-        "editor.formatOnSave" = false;
-        "breadcrumbs.enabled" = true;
-        "editor.useTabStops" = false;
-        "editor.fontFamily" = "PragmataPro Liga";
-        "editor.fontSize" = 14;
-        "editor.fontLigatures" = true;
-        "editor.lineHeight" = 20;
-        "workbench.fontAliasing" = "antialiased";
-        "files.trimTrailingWhitespace" = true;
-        "editor.minimap.enabled" = false;
-        "workbench.colorTheme" = "Atom One Dark";
-        "workbench.editor.enablePreview" = false;
-        "workbench.iconTheme" = "vscode-icons-mac";
-        "terminal.integrated.fontFamily" = "PragmataPro Liga";
-      };
-    };
-   };
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
   programs.alacritty = {
